@@ -21,3 +21,4 @@ services:
     environment:
       POSTGRES_USERNAME: admin
       POSTGRES_PASSWORD: Zaq12wsxcde3
+      POSTGRES_DB: foodbe-db
