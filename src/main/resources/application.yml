@@ -23,5 +23,5 @@ spring:
     driver-class-name: org.postgresql.Driver
 server:
   servlet:
-    context-path: api
+    context-path: /api
   port: '80'
