@@ -1,0 +1,30 @@
+services:
+  be-app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./logs:/app/logs
+    restart: always
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://db:5432/foodbe-db
+      DB_USERNAME: admin
+      DB_PASSWORD: Zaq12wsxcde3
+      LOG_LEVEL: INFO
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: foodbe-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Zaq12wsxcde3
+      POSTGRES_DB: foodbe-db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pg_data:

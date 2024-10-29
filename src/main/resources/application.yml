@@ -1,0 +1,27 @@
+logging:
+  file:
+    name: ./logs/app.log
+  logback:
+    rollingpolicy:
+      clean-history-on-start: 'true'
+      file-name-pattern: logfile.%d{yyyy-MM-dd}.%i.gz.log
+      max-history: '7'
+      total-size-cap: 1GB
+      max-file-size: 10MB
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread/%X{userId}] %-7level %logger{20}
+      - %msg [%file:%line]%n'
+  level:
+    root: INFO
+spring:
+  application:
+    name: FoodBe-API
+  datasource:
+    username: admin
+    password: Zaq12wsxcde3
+    url: jdbc:postgresql://localhost:5432/foodbe-db
+    driver-class-name: org.postgresql.Driver
+server:
+  servlet:
+    context-path: /api
+  port: '80'
